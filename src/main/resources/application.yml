@@ -1,6 +1,6 @@
 spring:
   application:
-    name: "inventory-manager"
+    name: "order-manager"
   kafka:
     bootstrap-servers: localhost:9092
     producer:
@@ -9,11 +9,8 @@ spring:
       max-request-size: 13107200
       compression-type: gzip
     consumer:
-      group-id: inventory-manager
+      group-id: order-manager
     topics:
-      listen:
+      produce:
         order:
           created: order_created_event_v1
-      produce:
-        inventory:
-          out-of-stock: product_out_of_stock_event_v1

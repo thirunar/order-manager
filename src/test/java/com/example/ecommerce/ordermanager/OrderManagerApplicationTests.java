@@ -1,4 +1,4 @@
-package com.example.ecommerce.inventorymanager;
+package com.example.ecommerce.ordermanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,12 +7,12 @@ import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
 @EmbeddedKafka(topics = {
-		"order_created_event_v1", "product_out_of_stock_event_v1"
+		"order_created_event_v1"
 })
 @TestPropertySource(properties = {
 		"spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}",
 })
-class InventoryManagerApplicationTests {
+class OrderManagerApplicationTests {
 
 	@Test
 	void contextLoads() {

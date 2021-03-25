@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.ecommerce</groupId>
-	<artifactId>inventory-manager</artifactId>
+	<artifactId>order-manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>inventory-manager</name>
-	<description>Service takes care managing products and inventory</description>
+	<description>Service takes care managing orders</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

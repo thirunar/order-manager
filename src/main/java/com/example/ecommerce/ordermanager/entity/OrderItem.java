@@ -1,4 +1,4 @@
-package com.example.ecommerce.inventorymanager.entity;
+package com.example.ecommerce.ordermanager.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,31 +9,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.math.BigDecimal;
 
 @Data
-@Entity(name = "PRODUCT")
+@Entity(name = "ORDER_ITEM")
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String name;
+    private Integer productId;
 
-    @ManyToOne(targetEntity = ProductCategory.class)
-    private ProductCategory category;
-
-    private BigDecimal price;
-
-    private String description;
-
-    private String logo;
-
-    private String size;
+    private Integer quantity;
 
 }

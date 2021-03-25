@@ -1,29 +1,30 @@
-package com.example.ecommerce.inventorymanager.entity;
+package com.example.ecommerce.ordermanager.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Data
-@Entity(name = "PRODUCT_CATEGORY")
+@Entity(name = "ORDERS")
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductCategory {
+public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String name;
-
-    private String description;
-
-    private String logo;
+    @OneToMany
+    @Singular
+    private List<OrderItem> items;
 }
