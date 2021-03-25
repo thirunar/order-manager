@@ -6,6 +6,7 @@ import com.example.ecommerce.inventorymanager.service.InventoryService;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -67,7 +68,6 @@ class InventoryListenerTest {
 
     @BeforeEach
     void setUp() throws Exception {
-
         Map<String, Object> props = KafkaTestUtils.consumerProps("testGroup", "true", kafkaBroker);
         props.put(KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
@@ -89,4 +89,10 @@ class InventoryListenerTest {
 
         verify(listener, timeout(10000)).onOrderCreated(orderCreated);
     }
+
+    @AfterEach
+    void tearDown() throws Exception {
+        consumer.close();
+    }
+
 }

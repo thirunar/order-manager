@@ -19,7 +19,7 @@ public class ProductCategoryController {
         return service.createProductCategory(productCategory);
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/product-category/{id}")
     public ProductCategory getProduct(@PathVariable("id") int productId) {
         return service.getProductCategory(productId);
     }
