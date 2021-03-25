@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: "inventory-manager"
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      max-request-size: 13107200
+      compression-type: gzip
+    consumer:
+      group-id: inventory-manager
+    topics:
+      listen:
+        order:
+          created: order_created_event_v1
+      produce:
+        inventory:
+          out-of-stock: product_out_of_stock_event_v1
