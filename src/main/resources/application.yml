@@ -14,3 +14,5 @@ spring:
       produce:
         order:
           created: order_created_event_v1
+server:
+  port: 9999

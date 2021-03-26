@@ -25,6 +25,7 @@ public class OrderService {
         Order savedOrder = repository.save(order);
 
         Message<OrderCreatedEvent> message = MessageBuilder.withPayload(OrderCreatedEvent.builder()
+                .id(order.getId())
                 .items(order.getItems()).build())
                 .setHeader(KafkaHeaders.TOPIC, orderCreatedTopic)
                 .build();
